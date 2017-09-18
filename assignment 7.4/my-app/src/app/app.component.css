@@ -1,0 +1,9 @@
+/* table styles */
+
+section h2 {
+  display: none;
+}
+
+thead th {
+  text-transform: capitalize;
+}

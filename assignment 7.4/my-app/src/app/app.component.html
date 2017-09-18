@@ -1,0 +1,30 @@
+<!-- table displaying values from objects in users array -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Users Details</h3>
+  </div>
+  <div class="panel-body">
+    <section class="container">
+      <h2>User Details Table</h2>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Index</th>
+            <!-- looping thorugh array which contains keys of object and display as heading -->
+            <th *ngFor='let key of keys'>{{key}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- looping through the users array and displaying values with the index with custom directive applied. Listening to custom events and getting the values passed from the event-->
+          <tr *ngFor='let user of users; index as i' appChangecolor [index]="i" (emitHoverIndex)="getHoverIndex($event)" (emitColor)="getColor($event)"
+            [ngStyle]="{'color': hvIndex-1 === i ? color: 'black'}">
+            <td>{{i+1}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>
